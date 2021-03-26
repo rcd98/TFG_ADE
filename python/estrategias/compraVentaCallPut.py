@@ -43,7 +43,7 @@ def comprarCall(precioEjercicio, prima, numContratos):
     plt.grid(True)
 
     nombre = str(abs(hash(datetime.now())))
-    plt.savefig('C:/Users/cxb0354/PycharmProjects/TFG _ADE/static/imgs/' + nombre + '.png')
+    plt.savefig('./static/imgs/' + nombre + '.png')
     return './static/imgs/' + nombre + '.png'
 
 def venderCall(precioEjercicio, prima, numContratos):
@@ -70,7 +70,7 @@ def venderCall(precioEjercicio, prima, numContratos):
     plt.grid(True)
 
     nombre = str(abs(hash(datetime.now())))
-    plt.savefig('C:/Users/cxb0354/PycharmProjects/TFG _ADE/static/imgs/' + nombre + '.png')
+    plt.savefig('./static/imgs/' + nombre + '.png')
     return './static/imgs/' + nombre + '.png'
 
 def comprarPut(precioEjercicio, prima, numContratos):
@@ -99,7 +99,7 @@ def comprarPut(precioEjercicio, prima, numContratos):
     plt.grid(True)
 
     nombre = str(abs(hash(datetime.now())))
-    plt.savefig('C:/Users/cxb0354/PycharmProjects/TFG _ADE/static/imgs/' + nombre + '.png')
+    plt.savefig('./static/imgs/' + nombre + '.png')
     return './static/imgs/' + nombre + '.png'
 
 def venderPut(precioEjercicio, prima, numContratos):
@@ -128,7 +128,7 @@ def venderPut(precioEjercicio, prima, numContratos):
     plt.grid(True)
 
     nombre = str(abs(hash(datetime.now())))
-    plt.savefig('C:/Users/cxb0354/PycharmProjects/TFG _ADE/static/imgs/' + nombre + '.png')
+    plt.savefig('./static/imgs/' + nombre + '.png')
     return './static/imgs/' + nombre + '.png'
 
 
