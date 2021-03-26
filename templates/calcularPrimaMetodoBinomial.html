@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PRIMA METODO BINOMIAL</title>
+</head>
+<body>
+
+<h1>{{titulo}}</h1>
+
+    <form action="/calculate" method="POST">
+        <label for="tipo">Tipo opcion:   </label>
+        <select name="tipo">
+           <option value="call">CALL</option>
+           <option value="put">PUT</option>
+        </select><br><br>
+        <label for="activoSubyacente">Precio del activo subyacente (S):   </label>
+        <input type="number" name="activoSubyacente" placeholder="ej: 120" step="0.01" required><br><br>
+        <label for="ejercicio">Precio del ejercicio (E):   </label>
+        <input type="number" name="ejercicio" placeholder="ej: 100" step="0.01" required><br><br>
+        <label for="volatilidad">Volatilidad (σ):   </label>
+        <input type="number" name="volatilidad" placeholder="ej: 0.4" step="0.01" required><br><br>
+        <label for="anios">Años (T):   </label>
+        <input type="number" name="anios" placeholder="ej: 2" step="0.01" required><br><br>
+        <label for="tramos">Tramos (n):   </label>
+        <input type="number" name="tramos" placeholder="ej: 4" required><br><br>
+        <label for="tipoInteres">Tipo de interes anual (i):   </label>
+        <input type="number" name="tipoInteres" placeholder="ej: 0.07" step="0.01" required><br><br>
+        <button type="submit">
+            Calcular Prima </button>
+
+    </form>
+
+
+</body>
+</html>

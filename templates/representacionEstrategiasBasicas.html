@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ESTRATEGIAS BASICAS</title>
+</head>
+<body>
+    <h1>REPRESENTACIÓN ESTRATEGIA BASICA</h1>
+    <form action="/calcularEstrategiasBasicas">
+        <label for="operacion">Tipo de operación:   </label>
+        <input type="text" name="operacion" value="{{ operacion }}" readonly><br><br>
+        <label for="tipo">Tipo opcion:   </label>
+        <input type="text" name="tipo" value="{{ tipo }}" readonly><br><br>
+        <label for="ejercicio">Precio del ejercicio (E):   </label>
+        <input type="text" name="ejercicio" value="{{ ejercicio }}" readonly><br><br>
+        <label for="prima">Prima (P):   </label>
+        <input type="text" name="prima" value="{{ prima }}" readonly><br><br>
+        <label for="contratos">Contratos:   </label>
+        <input type="text" name="contratos" value="{{ contratos }}" readonly><br><br>
+
+        <img src="{{ruta}}"/><br><br>
+
+        <button type="submit">
+            Volver </button>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PRIMA METODO BINOMIAL</title>
+</head>
+<body>
+
+    <h1> PRIMA CALCULADA EXITOSAMENTE </h1>
+    <form action="/">
+        <label for="tipo">Tipo opción:   </label>
+        <input type="text" name="tipo" value="{{ tipo }}" readonly><br><br>
+        <label for="activoSubyacente">Precio del activo subyacente (S):   </label>
+        <input type="text" name="activoSubyacente" value="{{ activoSubyacente }}" readonly><br><br>
+        <label for="ejercicio">Precio del ejercicio (E):   </label>
+        <input type="text" name="ejercicio" value="{{ ejercicio }}" readonly><br><br>
+        <label for="volatilidad">Volatilidad (σ):   </label>
+        <input type="text" name="volatilidad" value="{{ volatilidad }}" readonly><br><br>
+        <label for="anios">Años (T):   </label>
+        <input type="text" name="anios" value="{{ anios }}" readonly><br><br>
+        <label for="tramos">Tramos (n):   </label>
+        <input type="text" name="tramos" value="{{ tramos }}" readonly><br><br>
+        <label for="tipoInteres">Tipo de interes anual (i):   </label>
+        <input type="text" name="tipoInteres" value="{{ tipoInteres }}" readonly><br><br><br>
+        <b>
+        <label for="prima">PRECIO TEORICO DE OPCION:   </label>
+        <input type="text" name="prima" value="{{ prima }}" readonly><br><br></b>
+
+        <button type="submit">
+            Volver a inicio </button>
+    </form>
+
+
+</body>
+</html>
