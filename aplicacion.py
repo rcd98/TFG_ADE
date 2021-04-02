@@ -21,11 +21,11 @@ def calcularEstrategias():
 def representacionBasicas():
     if request.method == 'POST':
         tipo = request.form['tipo']
-        if tipo == "call":
+        if tipo == "Call":
             tipoN = 0
         else: tipoN = 1
         operacion = request.form['operacion']
-        if operacion == "compra":
+        if operacion == "Compra":
             operacionN = 0
         else:
             operacionN = 1
