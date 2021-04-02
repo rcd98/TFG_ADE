@@ -54,7 +54,7 @@ def calcularBS():
 def calculate():
     if request.method == 'POST':
         tipo = request.form['tipo']
-        if tipo == "call":
+        if tipo == "Call":
             tipoN = 0
         else: tipoN = 1
         activoSubyacente = request.form['activoSubyacente']
@@ -78,7 +78,7 @@ def calculate():
 def calculateBS():
     if request.method == 'POST':
         tipo = request.form['tipo']
-        if tipo == "call":
+        if tipo == "Call":
             tipoN = 0
         else: tipoN = 1
         activoSubyacente = request.form['activoSubyacente']

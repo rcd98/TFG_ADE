@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PRIMA METODO BLACK SCHOLES</title>
+    <meta charset="UTF-8">
+    <title>PRIMA METODO BLACK SCHOLES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
 </head>
 <body>
 
-<h1>{{titulo}}</h1>
+<div class="container">
+        <div class="row">
+             <div class="h1 col-12 text-center">{{titulo}}</div>
+             <form class="text-center bg-light" action="/calculateBS" method="POST">
 
-    <form action="/calculateBS" method="POST">
-        <label for="tipo">Tipo opcion:   </label>
-        <select name="tipo">
-           <option value="call">CALL</option>
-           <option value="put">PUT</option>
-        </select><br><br>
-        <label for="activoSubyacente">Precio del activo subyacente (S):   </label>
-        <input type="number" name="activoSubyacente" placeholder="ej: 120" step="0.01" required><br><br>
-        <label for="ejercicio">Precio del ejercicio (E):   </label>
-        <input type="number" name="ejercicio" placeholder="ej: 100" step="0.01" required><br><br>
-        <label for="volatilidad">Volatilidad (σ):   </label>
-        <input type="number" name="volatilidad" placeholder="ej: 0.4" step="0.01" required><br><br>
-        <label for="anios">Años (T):   </label>
-        <input type="number" name="anios" placeholder="ej: 2" step="0.01" required><br><br>
-        <label for="tipoInteres">Tipo de interes libre de riesgo (r):   </label>
-        <input type="number" name="tipoInteres" placeholder="ej: 0.07" step="0.01" required><br><br>
-        <button type="submit">
-            Calcular Prima </button>
+                <div>
+                    <label for="tipo">Tipo opcion: </label>
+                    <select name="tipo" class="text-dark ">
+                        <option  value="Call">CALL</option>
+                        <option  value="Put">PUT</option>
+                    </select><br><br>
+                </div>
 
-    </form>
+                <div class="form-group">
+                    <label for="activoSubyacente">Precio del activo subyacente (S):   </label>
+                    <input type="number" name="activoSubyacente" placeholder="ej: 120" step="0.01" required><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="ejercicio">Precio del ejercicio (E):   </label>
+                    <input type="number" name="ejercicio" placeholder="ej: 100" step="0.01" required><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="volatilidad">Volatilidad (σ):   </label>
+                    <input type="number" name="volatilidad" placeholder="ej: 0.4" step="0.01" required><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="anios">Años (T):   </label>
+                    <input type="number" name="anios" placeholder="ej: 2" step="0.01" required><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoInteres">Tipo de interes anual (i):   </label>
+                    <input type="number" name="tipoInteres" placeholder="ej: 0.07" step="0.01" required><br><br>
+                </div>
+
+                <div class="form-group" >
+                    <button class="btn btn-info border-dark" type="submit"> Calcular Prima </button>
+                </div>
+
+            </form>
 
 
+            <div class="row">
+                <div class="list-group ">
+                    <br><br><br>
+                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-info text-center text-dark border-dark">Volver a inicio</a>
+                </div>
+            </div>
+        </div>
+
+
+
+</div>
+
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/jquery-3.2.1.slim.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>
