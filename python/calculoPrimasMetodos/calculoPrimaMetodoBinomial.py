@@ -21,6 +21,8 @@ class PrimaMetodoBinomial(object):
         self.probabilidadSubida = (math.exp(self.incremento * self.interesLibreRiesgo) - self.factorBajada) / (self.factorSubida - self.factorBajada)
         self.probabilidadBajada = 1 - self.probabilidadSubida
 
+        self.resultado = self.calcularPrima()
+
     def calcularPrima(self):
         rama = []
         preciosActivoSubyacente = []

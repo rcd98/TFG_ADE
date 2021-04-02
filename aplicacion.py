@@ -64,8 +64,7 @@ def calculate():
         tipoInteres = request.form['tipoInteres']
         tipoInteres = float(tipoInteres)
 
-        prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, tipoInteres)
-        prima = float(prima.calcularPrima())
+        prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, tipoInteres).resultado
 
     return render_template("primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima)
 
