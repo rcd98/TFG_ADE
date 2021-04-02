@@ -15,7 +15,7 @@ def main():
 @aplicacion.route("/calcularEstrategiasBasicas")
 def calcularEstrategias():
     titulo = "CALCULAR ESTRATEGIAS BASICAS"
-    return render_template("calcularEstrategiasBasicas.html", titulo=titulo)
+    return render_template("./Estrategias/calcularEstrategiasBasicas.html", titulo=titulo)
 
 @aplicacion.route("/representacionBasicas", methods=['POST'])
 def representacionBasicas():
@@ -38,17 +38,17 @@ def representacionBasicas():
 
     p = CompraVentaCallPut(ejercicio, prima, operacionN, tipoN, contratos)
     ruta = p.rutaImagen
-    return render_template("representacionEstrategiasBasicas.html", ruta=ruta, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
+    return render_template("./Estrategias/representacionEstrategiasBasicas.html", ruta=ruta, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
 
 @aplicacion.route("/calcularPrimaBinomial")
 def calcularBinomial():
     titulo = "CALCULAR PRIMA MÉTODO BINOMIAL"
-    return render_template("calcularPrimaMetodoBinomial.html", titulo= titulo)
+    return render_template("./MetodoBinomial/calcularPrimaMetodoBinomial.html", titulo= titulo)
 
 @aplicacion.route("/calcularPrimaBlackSchol")
 def calcularBS():
     titulo = "CALCULAR PRIMA MÉTODO BLACK SCHOLES"
-    return render_template("calcularPrimaMetodoBS.html", titulo= titulo)
+    return render_template("./MetodoBS/calcularPrimaMetodoBS.html", titulo= titulo)
 
 @aplicacion.route("/calculate", methods=['POST'])
 def calculate():
@@ -72,7 +72,7 @@ def calculate():
 
         prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, tipoInteres).resultado
 
-    return render_template("primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima)
+    return render_template("./MetodoBinomial/primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima)
 
 @aplicacion.route("/calculateBS", methods=['POST'])
 def calculateBS():
@@ -94,7 +94,7 @@ def calculateBS():
 
         prima = PrimaMetodoBS(tipoN, activoSubyacente, ejericio, anios, volatilidad, tipoInteres).resultado
 
-    return render_template("primaBSCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tipoInteres=tipoInteres, prima=prima)
+    return render_template("./MetodoBS/primaBSCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tipoInteres=tipoInteres, prima=prima)
 
 
 if __name__ == "__main__":

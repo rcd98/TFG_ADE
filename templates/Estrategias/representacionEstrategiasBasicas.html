@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ESTRATEGIAS BÁSICAS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../static/css/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+        <div class="row">
+             <div class="h1 col-12 text-center">REPRESENTACIÓN ESTRATEGIA BASICA</div>
+             <form class="text-center bg-light">
+
+                <div>
+                    <label for="operacion">Tipo de operación:   </label>
+                    <input class="text-center" type="text" name="operacion" value="{{ operacion }}" readonly><br><br>
+                </div>
+
+                <div>
+                    <label for="tipo">Tipo opcion:   </label>
+                    <input class="text-center" type="text" name="tipo" value="{{ tipo }}" readonly><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="ejercicio">Precio del ejercicio (E):   </label>
+                    <input class="text-center" type="text" name="ejercicio" value="{{ ejercicio }}" readonly><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="prima">Prima (P):   </label>
+                    <input class="text-center" type="text" name="prima" value="{{ prima }}" readonly><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="contratos">Contratos:   </label>
+                    <input class="text-center" type="text" name="contratos" value="{{ contratos }}" readonly><br><br>
+                </div>
+
+                <div class="form-group" >
+                   <img src="{{ruta}}"/>
+
+                 <div class="list-group ">
+                    <br><br><br>
+                  <a href="http://127.0.0.1:5000/calcularEstrategiasBasicas" class="list-group-item list-group-item-action list-group-item-info text-center text-dark border-dark">Volver a inicio</a><br><br>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+</div>
+
+<script src="../../static/js/popper.min.js"></script>
+<script src="../../static/js/jquery-3.2.1.slim.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+</body>
+</html>
+
