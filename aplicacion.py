@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
 
+from python.calculoPrimasMetodos.calculoPrimaMetodoBS import PrimaMetodoBS
 from python.calculoPrimasMetodos.calculoPrimaMetodoBinomial import PrimaMetodoBinomial
 from python.estrategias.compraVentaCallPut import CompraVentaCallPut
 
@@ -41,8 +42,13 @@ def representacionBasicas():
 
 @aplicacion.route("/calcularPrimaBinomial")
 def calcularBinomial():
-    titulo = "CALCULAR PRIMA METODO BINOMIAL"
+    titulo = "CALCULAR PRIMA MÉTODO BINOMIAL"
     return render_template("calcularPrimaMetodoBinomial.html", titulo= titulo)
+
+@aplicacion.route("/calcularPrimaBlackSchol")
+def calcularBS():
+    titulo = "CALCULAR PRIMA MÉTODO BLACK SCHOLES"
+    return render_template("calcularPrimaMetodoBS.html", titulo= titulo)
 
 @aplicacion.route("/calculate", methods=['POST'])
 def calculate():
@@ -67,6 +73,29 @@ def calculate():
         prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, tipoInteres).resultado
 
     return render_template("primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima)
+
+@aplicacion.route("/calculateBS", methods=['POST'])
+def calculateBS():
+    if request.method == 'POST':
+        tipo = request.form['tipo']
+        if tipo == "call":
+            tipoN = 0
+        else: tipoN = 1
+        activoSubyacente = request.form['activoSubyacente']
+        activoSubyacente = float(activoSubyacente)
+        ejercicio = request.form['ejercicio']
+        ejericio = float(ejercicio)
+        volatilidad = request.form['volatilidad']
+        volatilidad = float(volatilidad)
+        anios = request.form['anios']
+        anios = float(anios)
+        tipoInteres = request.form['tipoInteres']
+        tipoInteres = float(tipoInteres)
+
+        prima = PrimaMetodoBS(tipoN, activoSubyacente, ejericio, anios, volatilidad, tipoInteres).resultado
+
+    return render_template("primaBSCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tipoInteres=tipoInteres, prima=prima)
+
 
 if __name__ == "__main__":
     aplicacion.run(debug=True)
