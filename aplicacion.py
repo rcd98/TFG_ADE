@@ -17,6 +17,16 @@ def calcularEstrategias():
     titulo = "CALCULAR ESTRATEGIAS BASICAS"
     return render_template("./Estrategias/calcularEstrategiasBasicas.html", titulo=titulo)
 
+@aplicacion.route("/calcularEstrategiasComplejas")
+def complejas():
+    titulo = "ESTRATEGIAS COMPLEJAS"
+    return render_template("./Estrategias/calcularEstrategiasComplejas.html", titulo = titulo)
+
+@aplicacion.route("/estrategiasTendencia")
+def tendencia():
+    titulo = "ESTRATEGIAS DE TENDENCIA"
+    return render_template("./Estrategias/tendencia/estrategiasTendencia.html", titulo = titulo)
+
 @aplicacion.route("/representacionBasicas", methods=['POST'])
 def representacionBasicas():
     if request.method == 'POST':
