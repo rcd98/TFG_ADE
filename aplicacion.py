@@ -2,9 +2,8 @@ from flask import Flask, render_template,request
 
 from python.calculoPrimasMetodos.calculoPrimaMetodoBS import PrimaMetodoBS
 from python.calculoPrimasMetodos.calculoPrimaMetodoBinomial import PrimaMetodoBinomial
-from python.estrategias.compraVentaCallPut import CompraVentaCallPut
-
-
+from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
+from python.estrategias.representacionEstrategias import Representacion
 
 aplicacion = Flask(__name__)
 
@@ -46,9 +45,9 @@ def representacionBasicas():
         contratos = request.form['contratos']
         contratos = float(contratos)
 
-    p = CompraVentaCallPut(ejercicio, prima, operacionN, tipoN, contratos)
-    ruta = p.rutaImagen
-    return render_template("./Estrategias/representacionEstrategiasBasicas.html", ruta=ruta, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
+    estrategia = EstrategiasBasicas(ejercicio, prima, operacionN, tipoN, contratos)
+    r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionEstrategiasBasicas.html", ruta=r.rutaImagen, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
 
 @aplicacion.route("/calcularPrimaBinomial")
 def calcularBinomial():

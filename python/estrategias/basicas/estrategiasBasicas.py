@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from datetime import datetime
 
 class EstrategiasBasicas(object):
@@ -13,18 +12,19 @@ class EstrategiasBasicas(object):
         self.eje_x = []
         self.eje_y = []
         self.eje_0 = []
+        self.nombre = ""
         if self.operacion == 0 and self.tipo == 0:
             self.nombre = "Compra Call"
-            self.rutaImagen, self.eje_x, self.eje_y, self.eje_0  = comprarCall(self.precioEjercicio, self.prima, self.numContratos)
+            self.eje_x, self.eje_y, self.eje_0  = comprarCall(self.precioEjercicio, self.prima, self.numContratos)
         if self.operacion == 0 and self.tipo == 1:
             self.nombre = "Compra Put"
-            self.rutaImagen, self.eje_x, self.eje_y, self.eje_0 = comprarPut(self.precioEjercicio, self.prima, self.numContratos)
+            self.eje_x, self.eje_y, self.eje_0 = comprarPut(self.precioEjercicio, self.prima, self.numContratos)
         if self.operacion == 1 and self.tipo == 0:
             self.nombre = "Venta Call"
-            self.rutaImagen, self.eje_x, self.eje_y, self.eje_0 = venderCall(self.precioEjercicio, self.prima, self.numContratos)
+            self.eje_x, self.eje_y, self.eje_0 = venderCall(self.precioEjercicio, self.prima, self.numContratos)
         if self.operacion == 1 and self.tipo == 1:
             self.nombre = "Venta Put"
-            self.rutaImagen, self.eje_x, self.eje_y, self.eje_0 = venderPut(self.precioEjercicio, self.prima, self.numContratos)
+            self.eje_x, self.eje_y, self.eje_0 = venderPut(self.precioEjercicio, self.prima, self.numContratos)
 
 def comprarCall(precioEjercicio, prima, numContratos):
     precioSubyacenteInferior = int(precioEjercicio - (prima * 2))
@@ -40,9 +40,7 @@ def comprarCall(precioEjercicio, prima, numContratos):
         else:
             eje_y.append((i - precioEjercicio - prima)*numContratos)
 
-
-    nombre = str(abs(hash(datetime.now())))
-    return './static/imgs/' + nombre + '.png', eje_x, eje_y, eje_0
+    return eje_x, eje_y, eje_0
 
 def venderCall(precioEjercicio, prima, numContratos):
     precioSubyacenteInferior = int(precioEjercicio - (prima * 2))
@@ -58,8 +56,7 @@ def venderCall(precioEjercicio, prima, numContratos):
         else:
             eje_y.append((i - precioEjercicio - prima)*-1*numContratos)
 
-    nombre = str(abs(hash(datetime.now())))
-    return './static/imgs/' + nombre + '.png', eje_x, eje_y, eje_0
+    return eje_x, eje_y, eje_0
 
 def comprarPut(precioEjercicio, prima, numContratos):
     precioSubyacenteInferior = int(precioEjercicio - (prima * 2))
@@ -75,8 +72,7 @@ def comprarPut(precioEjercicio, prima, numContratos):
         else:
             eje_y.append((precioEjercicio - i - prima) * numContratos)
 
-    nombre = str(abs(hash(datetime.now())))
-    return './static/imgs/' + nombre + '.png', eje_x, eje_y, eje_0
+    return eje_x, eje_y, eje_0
 
 def venderPut(precioEjercicio, prima, numContratos):
     precioSubyacenteInferior = int(precioEjercicio - (prima * 2))
@@ -92,5 +88,4 @@ def venderPut(precioEjercicio, prima, numContratos):
         else:
             eje_y.append((precioEjercicio - i - prima) * -1 * numContratos)
 
-    nombre = str(abs(hash(datetime.now())))
-    return './static/imgs/' + nombre + '.png', eje_x, eje_y, eje_0
+    return eje_x, eje_y, eje_0

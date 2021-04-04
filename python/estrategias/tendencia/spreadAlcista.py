@@ -1,6 +1,4 @@
-import matplotlib.pyplot as plt
 from datetime import datetime
-from python.estrategias.compraVentaCallPut import CompraVentaCallPut
 
 
 class SpreadAlcista(object):
