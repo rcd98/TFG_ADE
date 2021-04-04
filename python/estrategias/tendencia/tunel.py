@@ -92,7 +92,5 @@ def tunelBajista(precioEjercicio, precioEjercicio2, prima, prima2, numContratos,
     eje_y_def = []
     for i in range(len(eje_x)):
         eje_y_def.append(eje_y[i] + eje_y1[i])
-    print(eje_x)
-    print(eje_y_def)
     nombre = str(abs(hash(datetime.now())))
     return './static/imgs/' + nombre + '.png', eje_x, eje_y_def, eje_0
