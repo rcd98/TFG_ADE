@@ -6,6 +6,7 @@ from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
 from python.estrategias.representacionEstrategias import Representacion
 from python.estrategias.tendencia.spreadAlcista import SpreadAlcista
 from python.estrategias.tendencia.spreadBajista import SpreadBajista
+from python.estrategias.tendencia.tunel import Tunel
 
 aplicacion = Flask(__name__)
 
@@ -33,6 +34,16 @@ def spreadAlcista():
     titulo = "SPREAD ALCISTA"
     return render_template("./Estrategias/tendencia/spreadAlcista.html", titulo=titulo)
 
+@aplicacion.route("/tunelAlcista")
+def tunelAlcista():
+    titulo = "TUNEL ALCISTA"
+    return render_template("./Estrategias/tendencia/tunelAlcista.html", titulo=titulo)
+
+@aplicacion.route("/tunelBajista")
+def tunelBajista():
+    titulo = "TUNEL BAJISTA"
+    return render_template("./Estrategias/tendencia/tunelBajista.html", titulo=titulo)
+
 @aplicacion.route("/estrategiasTendencia")
 def tendencia():
     titulo = "ESTRATEGIAS DE TENDENCIA"
@@ -44,7 +55,8 @@ def representacionTendencia():
         tipo = request.form['tipo']
         if tipo == "Call":
             tipoN = 0
-        else: tipoN = 1
+        else:
+            tipoN = 1
         ejercicio0 = request.form['ejercicio0']
         ejercicio0 = float(ejercicio0)
         prima0 = request.form['prima0']
@@ -57,15 +69,23 @@ def representacionTendencia():
         prima1 = float(prima1)
         contratos1 = request.form['contratos1']
         contratos1 = float(contratos1)
-        if (request.form['spread'] == "bajista"):
+        if (request.form['estrategia'] == "spreadBajista"):
             titulo = "SPREAD BAJISTA"
             estrategia = SpreadBajista(ejercicio0, prima0, ejercicio1, prima1, tipoN, contratos0, contratos1)
-        else:
+        if (request.form['estrategia'] == "spreadAlcista"):
             titulo = "SPREAD ALCISTA"
             estrategia = SpreadAlcista(ejercicio0, prima0,ejercicio1, prima1, tipoN, contratos0,contratos1)
+        if (request.form['estrategia'] == "tunelAlcista"):
+            tipo=0
+            titulo = "TUNEL ALCISTA"
+            estrategia = Tunel(ejercicio0, prima0,ejercicio1, prima1, tipo, contratos0,contratos1)
+        if (request.form['estrategia'] == "tunelBajista"):
+            tipo=1
+            titulo = "TUNEL BAJISTA"
+            estrategia = Tunel(ejercicio0, prima0,ejercicio1, prima1, tipo, contratos0,contratos1)
 
     r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
-    return render_template("./Estrategias/tendencia/representacionSpread.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo=tipo, contratos0=contratos0, contratos1=contratos1, titulo=titulo)
+    return render_template("./Estrategias/tendencia/representacionTendencia.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo=tipo, contratos0=contratos0, contratos1=contratos1, titulo=titulo)
 
 @aplicacion.route("/representacionBasicas", methods=['POST'])
 def representacionBasicas():
