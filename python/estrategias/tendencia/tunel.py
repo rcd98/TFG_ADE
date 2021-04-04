@@ -29,9 +29,8 @@ class Tunel(object):
 def tunelAlcista(precioEjercicio, precioEjercicio2, prima, prima2, numContratos, numContratos2):
     multiplo = max(prima, prima2)
     precioSubyacenteInferior = int(precioEjercicio - (multiplo * 2))
-    print(precioSubyacenteInferior)
     precioSubyacenteSuperior = int(precioEjercicio + (multiplo * 2))
-    print(precioSubyacenteSuperior)
+
     precioSubyacenteInferior2 = int(precioEjercicio2 - (multiplo * 2))
     precioSubyacenteSuperior2 = int(precioEjercicio2 + (multiplo * 2))
 
@@ -55,10 +54,9 @@ def tunelAlcista(precioEjercicio, precioEjercicio2, prima, prima2, numContratos,
             eje_y1.append((precioEjercicio2 - i - prima2) * -1 * numContratos2)
 
     eje_y_def = []
-    print(eje_x)
     for i in range(len(eje_x)):
         eje_y_def.append(eje_y[i] + eje_y1[i])
-    print(eje_y_def)
+
     nombre = str(abs(hash(datetime.now())))
     return './static/imgs/' + nombre + '.png', eje_x, eje_y_def, eje_0
 
