@@ -79,6 +79,10 @@ def representacionTendencia():
             tipo=0
             titulo = "TUNEL ALCISTA"
             estrategia = Tunel(ejercicio0, prima0,ejercicio1, prima1, tipo, contratos0,contratos1)
+            r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+            return render_template("./Estrategias/tendencia/representacionTendencia.html", ruta=r.rutaImagen,
+                                   ejercicio0=ejercicio0, prima0=prima0, ejercicio1=ejercicio1, prima1=prima1,
+                                   tipo="Compra call y Venta put", contratos0=contratos0, contratos1=contratos1, titulo=titulo)
         if (request.form['estrategia'] == "tunelBajista"):
             tipo=1
             titulo = "TUNEL BAJISTA"
