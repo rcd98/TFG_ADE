@@ -141,12 +141,20 @@ def calculate():
         anios = float(anios)
         tramos = request.form['tramos']
         tramos = int(tramos)
+
         tipoInteres = request.form['tipoInteres']
-        tipoInteres = float(tipoInteres)
+        if tipoInteres == "i":
+            interesLibre = 0
+            interesAnual = float(request.form['interesDef'])
+            value = float(request.form['interesDef'])
 
-        prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, tipoInteres).resultado
+        else:
+            interesAnual = 0
+            interesLibre = float(request.form['interesDef'])
+            value = float(request.form['interesDef'])
 
-    return render_template("./MetodoBinomial/primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima)
+        prima = PrimaMetodoBinomial(tipoN, activoSubyacente, ejericio, anios, volatilidad, tramos, interesAnual, interesLibre).resultado
+    return render_template("./MetodoBinomial/primaBinomialCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tramos= tramos, tipoInteres=tipoInteres, prima=prima, value=value)
 
 @aplicacion.route("/calculateBS", methods=['POST'])
 def calculateBS():
@@ -163,12 +171,21 @@ def calculateBS():
         volatilidad = float(volatilidad)
         anios = request.form['anios']
         anios = float(anios)
+
         tipoInteres = request.form['tipoInteres']
-        tipoInteres = float(tipoInteres)
+        if tipoInteres == "i":
+            interesLibre = 0
+            interesAnual = float(request.form['interesDef'])
+            value = float(request.form['interesDef'])
 
-        prima = PrimaMetodoBS(tipoN, activoSubyacente, ejericio, anios, volatilidad, tipoInteres).resultado
+        else:
+            interesAnual = 0
+            interesLibre = float(request.form['interesDef'])
+            value = float(request.form['interesDef'])
 
-    return render_template("./MetodoBS/primaBSCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tipoInteres=tipoInteres, prima=prima)
+        prima = PrimaMetodoBS(tipoN, activoSubyacente, ejericio, anios, volatilidad, interesAnual, interesLibre).resultado
+
+    return render_template("./MetodoBS/primaBSCalculada.html", tipo=tipo, activoSubyacente=activoSubyacente, ejercicio=ejercicio, volatilidad=volatilidad, anios=anios, tipoInteres=tipoInteres, prima=prima, value=value)
 
 
 if __name__ == "__main__":

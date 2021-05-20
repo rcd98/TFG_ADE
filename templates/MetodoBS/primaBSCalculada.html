@@ -10,53 +10,48 @@
 
 <div class="container">
         <div class="row">
-             <div class="h1 col-12 text-center">PRIMA CALCULADA EXITOSAMENTE</div>
+             <div class="h1 col-12 text-center"><u>PRIMA CALCULADA EXITOSAMENTE</u></div>
              <form class="text-center bg-light" action="/">
 
-                <div>
-                    <label for="tipo">Tipo opción:   </label>
+                <div><br>
+                    <label for="tipo">Tipo opción :  </label>
                     <input class="text-center" type="text" name="tipo" value="{{ tipo }}" readonly><br><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="activoSubyacente">Precio del activo subyacente (S):   </label>
+                    <label for="activoSubyacente">Precio del activo subyacente (PS) : </label>
                     <input class="text-center" type="text" name="activoSubyacente" value="{{ activoSubyacente }}" readonly><br><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="ejercicio">Precio del ejercicio (E):   </label>
+                    <label for="ejercicio">Precio del ejercicio (PE) :   </label>
                     <input class="text-center" type="text" name="ejercicio" value="{{ ejercicio }}" readonly><br><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="volatilidad">Volatilidad (σ):   </label>
+                    <label for="volatilidad">Volatilidad (σ) : </label>
                     <input class="text-center" type="text" name="volatilidad" value="{{ volatilidad }}" readonly><br><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="anios">Años (T):   </label>
+                    <label for="anios">Años (T) : </label>
                     <input class="text-center" type="text" name="anios" value="{{ anios }}" readonly><br><br>
                 </div>
 
                 <div class="form-group">
-                    <label for="tipoInteres">Tipo de interes libre de riesgo (r):   </label>
-                    <input class="text-center" type="text" name="tipoInteres" value="{{ tipoInteres }}" readonly><br><br><br>
+                    <label for="tipoInteres">{{ tipoInteres }} :   </label>
+                    <input class="text-center" type="text" name="tipoInteres" value="{{ value }}" readonly><br><br><br>
                 </div>
 
-               <div class="form-group"><b>
+               <div class="form-group border border-dark"><b><br>
                     <label for="prima">PRECIO TEORICO DE OPCION:   </label>
-                    <input class="text-center"class="text-center" type="text" name="prima" value="{{ prima }}" readonly><br></b>
+                    <input class="text-center" type="text" name="prima" value="{{ prima }}" readonly><br></b><br>
+                </div><br>
+                 <div class="list-group col-12 text-align-center">
+                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-info text-dark border-dark">Volver a inicio</a>
                 </div>
 
             </form>
-
-
-            <div class="row">
-                <div class="list-group ">
-                    <br><br><br>
-                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-info text-center text-dark border-dark">Volver a inicio</a>
-                </div>
-            </div>
         </div>
 
 

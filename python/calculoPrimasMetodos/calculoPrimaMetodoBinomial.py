@@ -4,17 +4,23 @@ from scipy.stats import binom
 
 class PrimaMetodoBinomial(object):
 
-    def __init__(self, tipo,  precioActivoSubyacente , precioEjercicio , tiempo, volatilidad, pasos, interes):
+    def __init__(self, tipo,  precioActivoSubyacente , precioEjercicio , tiempo, volatilidad, pasos, interesNormal, interesLibre):
         self.tipo = tipo
         self.precioActivoSubyacente = precioActivoSubyacente
         self.precioEjercicio = precioEjercicio
-        self.volatilidad = volatilidad
-        self.interes = interes
+        self.volatilidad = volatilidad / 100
+
         self.tiempo = tiempo
         self.pasos = pasos
         self.incremento = tiempo / pasos
+        if interesLibre == 0:
+            self.interes = interesNormal / 100
+            self.interesLibreRiesgo = np.log(1 + self.interes)
 
-        self.interesLibreRiesgo = np.log(1 + self.interes)
+        else:
+            self.interes = math.exp(interesLibre / 100) - 1
+            self.interesLibreRiesgo = interesLibre / 100
+
         self.factorSubida = math.exp(self.volatilidad * math.sqrt(self.incremento))
         self.factorBajada = 1 / self.factorSubida
 
