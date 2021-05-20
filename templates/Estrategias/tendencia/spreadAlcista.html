@@ -10,8 +10,8 @@
 
     <div class="container">
         <div class="row">
-             <div class="h1 col-12 text-center">{{titulo}}</div>
-             <form class=" bg-light" action="/representacionTendencia" method="POST">
+             <div class="h1 col-12 text-center"> <u> {{titulo}} </u></div>
+             <form class=" bg-light border border-dark" action="/representacionTendencia" method="POST">
 
                 <div class="col-12 text-center"col-12>
                     <label for="tipo"><br>Tipo opcion: </label>
@@ -21,8 +21,8 @@
                     </select><br><br>
                 </div>
                 <div class="text-center">
-                    <h3 CLASS="text-danger"> COMPRA </h3>
-                    <div class="form-group">
+                    <h3 CLASS="text-danger"> <u>COMPRA</u> </h3>
+                    <div class="form-group"><br>
                         <label for="ejercicio">Precio del ejercicio (E):   </label>
                         <input type="number" name="ejercicio0" placeholder="ej: 100" step="0.01" required><br><br>
                     </div>
@@ -40,8 +40,8 @@
 
                 </div>
                 <div class="text-center">
-                    <h3 CLASS="text-danger"> VENTA </h3>
-                    <div class="form-group">
+                    <h3 CLASS="text-danger"><u> VENTA </u></h3>
+                    <div class="form-group"><br>
                         <label for="ejercicio">Precio del ejercicio (E):   </label>
                         <input type="number" name="ejercicio1" placeholder="ej: 100" step="0.01" required><br><br>
                     </div>
@@ -61,17 +61,18 @@
 
                 <div class="form-group text-center" >
                     <button class="btn btn-info border-dark" type="submit"> Representar estrategia </button>
-                </div>
+                </div><br>
                 <input type="hidden" name="estrategia" value="spreadAlcista">
-                 <div class="row ">
-                <div class="list-group">
-                    <br><br><br>
-                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-info text-center text-dark border-dark">Volver a inicio</a><br>
-                </div>
-            </div>
+
+
 
             </form>
-
+                <div class="list-group col-12 text-align-center align-self-center"><br><br>
+                    <a href="http://127.0.0.1:5000/estrategiasTendencia" class="list-group-item list-group-item-action list-group-item-danger text-center text-dark border-dark">Volver atrás</a><br>
+                 </div>
+                 <div class="list-group col-12 text-align-center align-self-center">
+                      <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
+                </div>
 
 
 
