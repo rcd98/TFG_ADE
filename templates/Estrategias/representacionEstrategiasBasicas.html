@@ -10,10 +10,10 @@
 
 <div class="container">
         <div class="row">
-             <div class="h1 col-12 text-center">REPRESENTACIÓN ESTRATEGIA BASICA</div>
+            <div class="h1 col-12 text-center"> <u> REPRESENTACIÓN ESTRATEGIA BASICA </u></div>
              <form class="text-center bg-light">
 
-                <div>
+                <div><br>
                     <label for="operacion">Tipo de operación:   </label>
                     <input class="text-center" type="text" name="operacion" value="{{ operacion }}" readonly><br><br>
                 </div>
@@ -38,12 +38,13 @@
                     <input class="text-center" type="text" name="contratos" value="{{ contratos }}" readonly><br><br>
                 </div>
 
-                <div class="form-group" >
-                   <img src="{{ruta}}"/></div>
-
-                 <div class="list-group ">
-                    <br><br><br>
-                  <a href="http://127.0.0.1:5000/calcularEstrategiasBasicas" class="list-group-item list-group-item-action list-group-item-info text-center text-dark border-dark">Volver a inicio</a><br><br>
+                <div class="form-group border border-dark" >
+                   <img src="{{ruta}}"/></div><br>
+                 <div class="list-group col-12 text-align-center">
+                  <a href="http://127.0.0.1:5000/calcularEstrategiasBasicas" class="list-group-item list-group-item-action list-group-item-info text-dark border-dark">Volver atrás</a>
+                </div><br>
+                 <div class="list-group col-12 text-align-center">
+                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
                 </div>
 
              </form>

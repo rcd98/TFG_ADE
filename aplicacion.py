@@ -112,7 +112,7 @@ def representacionBasicas():
 
     estrategia = EstrategiasBasicas(ejercicio, prima, operacionN, tipoN, contratos)
     r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
-    return render_template("./Estrategias/representacionEstrategiasBasicas.html", ruta=r.rutaImagen, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
+    return render_template("/Estrategias/representacionEstrategiasBasicas.html", ruta=r.rutaImagen, ejercicio=ejercicio, prima=prima, operacion=operacion, tipo=tipo, contratos=contratos)
 
 @aplicacion.route("/calcularPrimaBinomial")
 def calcularBinomial():

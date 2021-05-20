@@ -5,7 +5,6 @@ class EstrategiasBasicas(object):
     def __init__(self, precioEjercicio, prima, operacion, tipo, numContratos):
         self.precioEjercicio = precioEjercicio
         self.prima = prima
-        self.rutaImagen = ""
         self.operacion = operacion
         self.tipo = tipo
         self.numContratos = numContratos

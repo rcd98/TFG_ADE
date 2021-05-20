@@ -33,6 +33,9 @@ Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.
 
 
 """
+estrategia = EstrategiasBasicas(100, 5, 0, 0, 1)
+print(estrategia.eje_x)
+print(estrategia.eje_y)
+print(estrategia.eje_0)
 
-binomial = PrimaMetodoBinomial(0, 100, 110, 2, 20, 4, 0, 6.7659)
-print(binomial.resultado)
+Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)

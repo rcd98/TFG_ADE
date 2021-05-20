@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from datetime import datetime
 
+
 class Representacion():
 
     def __init__(self, eje_x, eje_y, eje_0, titulo):
@@ -15,6 +16,7 @@ class Representacion():
         plt.xlabel('Precio activo subyacente (S)')
         plt.ylabel('Beneficio / Perdida')
         nombre = str(abs(hash(datetime.now())))
-        self.rutaImagen = './static/imgs/' + nombre + '.png'
+        self.rutaImagen = 'static/imgs/' + nombre + '.png'
         plt.savefig(self.rutaImagen)
         plt.grid(True)
+        plt.close()
