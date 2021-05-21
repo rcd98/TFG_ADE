@@ -36,12 +36,12 @@ def spreadAlcista():
 
 @aplicacion.route("/tunelAlcista")
 def tunelAlcista():
-    titulo = "TUNEL ALCISTA"
+    titulo = "TÚNEL ALCISTA"
     return render_template("./Estrategias/tendencia/tunelAlcista.html", titulo=titulo)
 
 @aplicacion.route("/tunelBajista")
 def tunelBajista():
-    titulo = "TUNEL BAJISTA"
+    titulo = "TÚNEL BAJISTA"
     return render_template("./Estrategias/tendencia/tunelBajista.html", titulo=titulo)
 
 @aplicacion.route("/estrategiasTendencia")

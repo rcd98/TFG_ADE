@@ -10,11 +10,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="h1 col-12 text-center"> <u> {{titulo}} </u></div>
+            <div class="h1 col-12 text-center"> <u>{{titulo}} </u></div><br><br><br>
              <form class=" bg-light border border-dark" action="/representacionTendencia" method="POST">
 
                 <div class="col-12 text-center"col-12>
-                    <label for="tipo"><br>Tipo opcion: </label>
+                    <label for="tipo"><br>Tipo opcion : </label>
                     <select name="tipo" class="text-dark ">
                         <option  value="Call">CALL</option>
                         <option  value="Put">PUT</option>
@@ -23,18 +23,18 @@
                 <div class="text-center">
                     <h3 CLASS="text-danger"> <u> COMPRA </u> </h3>
                     <div class="form-group"><br>
-                        <label for="ejercicio">Precio del ejercicio (E):   </label>
-                        <input type="number" name="ejercicio0" placeholder="ej: 100" step="0.01" required><br><br>
+                        <label for="ejercicio">Precio del ejercicio (PE) :   </label>
+                        <input type="number" name="ejercicio0" placeholder="ej: 44,0" step="0.01" required><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="prima">Prima (P):   </label>
-                        <input type="number" name="prima0" placeholder="ej: 5" step="0.01" required><br><br>
+                        <label for="prima">Prima (P) :   </label>
+                        <input type="number" name="prima0" placeholder="ej: 1,65" step="0.01" required><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="contratos">Contratos:   </label>
-                        <input type="number" name="contratos0" placeholder="ej: 2" step="0.01" required><br><br>
+                        <label for="contratos">Contratos :   </label>
+                        <input type="number" name="contratos0" placeholder="ej: 1" step="0.01" required><br><br>
                     </div>
 
 
@@ -42,34 +42,42 @@
                 <div class="text-center">
                     <h3 CLASS="text-danger"> <u>VENTA </u></h3>
                     <div class="form-group"><br>
-                        <label for="ejercicio">Precio del ejercicio (E):   </label>
-                        <input type="number" name="ejercicio1" placeholder="ej: 100" step="0.01" required><br><br>
+                        <label for="ejercicio">Precio del ejercicio (PE) :   </label>
+                        <input type="number" name="ejercicio1" placeholder="ej: 42" step="0.01" required><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="prima">Prima (P):   </label>
-                        <input type="number" name="prima1" placeholder="ej: 5" step="0.01" required><br><br>
+                        <label for="prima">Prima (P) :   </label>
+                        <input type="number" name="prima1" placeholder="ej: 0,7" step="0.01" required><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="contratos">Contratos:   </label>
-                        <input type="number" name="contratos1" placeholder="ej: 2" step="0.01" required><br><br><br>
+                        <label for="contratos">Contratos :   </label>
+                        <input type="number" name="contratos1" placeholder="ej: 1" step="0.01" required><br><br><br>
                     </div>
 
 
                 </div>
-                <div class="form-group text-center" >
-                    <button class="btn btn-info border-dark" type="submit"> Representar estrategia </button>
-                </div><br>
                  <input type="hidden" name="estrategia" value="spreadBajista">
+                <div class ="row">
+                        <div class ="row text-center">
+                            <div class="list-group col-2">
+                              <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
+                            </div>
+                            <div class="form-group col-2" >
+                            <a href="http://127.0.0.1:5000/estrategiasTendencia" class="list-group-item list-group-item-action list-group-item-danger text-dark border-dark">Volver atrás</a>
+                            </div>
+                            <div class="form-group col-4 align-self-center" >
+                            <button class="btn btn-info border-dark" type="submit"> Representar estrategia </button>
+                            </div>
 
-                 </form>
-                <div class="list-group col-12 text-align-center align-self-center"><br><br>
-                    <a href="http://127.0.0.1:5000/estrategiasTendencia" class="list-group-item list-group-item-action list-group-item-danger text-center text-dark border-dark">Volver atrás</a><br>
+                        </div>
                  </div>
-                 <div class="list-group col-12 text-align-center align-self-center">
-                      <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
-                </div>
+                <br>
+
+                </form>
+
+
         </div>
 </div>
 

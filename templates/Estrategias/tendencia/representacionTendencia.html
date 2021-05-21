@@ -10,27 +10,27 @@
 
 <div class="container">
         <div class="row">
-             <div class="h1 col-12 text-center"> <u> {{titulo}} </u></div>
-              <form class=" bg-light">
+             <div class="h1 col-12 text-center"> <u>{{titulo}} </u></div><br><br><br>
+              <form class=" bg-light border border-dark">
 
                 <div class="col-12 text-center"col-12><br>
-                    <label for="tipo">Tipo opcion:   </label>
+                    <label for="tipo">Tipo opcion :   </label>
                     <input class="text-center" type="text" name="tipo" value="{{ tipo }}" readonly><br><br>
                 </div>
                 <div class="text-center">
                     <h3 CLASS="text-danger"> COMPRA </h3>
                     <div class="form-group">
-                        <label for="ejercicio">Precio del ejercicio (E):   </label>
+                        <label for="ejercicio">Precio del ejercicio (PE) :   </label>
                         <input class="text-center" type="text" name="ejercicio0" value="{{ ejercicio0 }}" readonly><br><br>
                     </div>
 
                     <div class="form-group">
-                       <label for="prima">Prima (P):   </label>
+                       <label for="prima">Prima (P) :   </label>
                         <input class="text-center" type="text" name="prima0" value="{{ prima0 }}" readonly><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="contratos">Contratos:   </label>
+                        <label for="contratos">Contratos :   </label>
                     <input class="text-center" type="text" name="contratos0" value="{{ contratos0 }}" readonly><br><br>
                     </div>
 
@@ -39,32 +39,35 @@
                 <div class="text-center">
                     <h3 CLASS="text-danger"> VENTA </h3>
                     <div class="form-group">
-                        <label for="ejercicio">Precio del ejercicio (E):   </label>
+                        <label for="ejercicio">Precio del ejercicio (PE) :   </label>
                         <input class="text-center" type="text" name="ejercicio1" value="{{ ejercicio1 }}" readonly><br><br>
                     </div>
 
                     <div class="form-group">
-                       <label for="prima">Prima (P):   </label>
+                       <label for="prima">Prima (P) :   </label>
                         <input class="text-center" type="text" name="prima1" value="{{ prima1 }}" readonly><br><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="contratos">Contratos:   </label>
+                        <label for="contratos">Contratos :   </label>
                     <input class="text-center" type="text" name="contratos1" value="{{ contratos1 }}" readonly><br><br>
                     </div>
                 </div>
 
-                <div class="form-group text-center border border-dark" >
+                <div class="form-group text-center border border-success" >
                    <img src="{{ruta}}"/></div><br>
-
-                 <div class="list-group col-12 text-align-center align-self-center">
-                  <a href="http://127.0.0.1:5000/estrategiasTendencia" class=" col-6 list-group-item list-group-item-action list-group-item-danger text-center text-dark border-dark">Volver atrás</a><br>
+                 <div class ="row">
+                    <div class="list-group col-2">
+                      <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
+                    </div>
+                    <div class="form-group col-2" >
+                    <a href="http://127.0.0.1:5000/estrategiasTendencia" class="list-group-item list-group-item-action list-group-item-danger text-center text-dark border-dark">Volver atrás</a>
                 </div>
-                 <div class="list-group col-12 text-align-center align-self-center">
-                        <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
-                </div>
 
-             </form>
+                </div>
+            <br>
+
+            </form>
 
         </div>
 
