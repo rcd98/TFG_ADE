@@ -10,8 +10,8 @@
 
 <div class="container">
         <div class="row">
-             <div class="h1 col-12 text-center"> <u>{{titulo}} </u></div>
-             <form class="text-center bg-light" action="/calculate" method="POST">
+             <div class="h1 col-12 text-center"> <u>{{titulo}} </u></div><br><br><br>
+             <form class="text-center bg-light border border-dark" action="/calculate" method="POST">
 
                 <div><br>
                     <label for="tipo">Tipo opcion : </label>
@@ -23,17 +23,17 @@
 
                 <div class="form-group">
                     <label for="activoSubyacente">Precio del activo subyacente (PS) :   </label>
-                    <input type="number" name="activoSubyacente" placeholder="ej: 120" step="0.01" required><br><br>
+                    <input type="number" name="activoSubyacente" placeholder="ej: 200,0" step="0.01" required><br><br>
                 </div>
 
                 <div class="form-group">
                     <label for="ejercicio">Precio del ejercicio (PE) :    </label>
-                    <input type="number" name="ejercicio" placeholder="ej: 100" step="0.01" required><br><br>
+                    <input type="number" name="ejercicio" placeholder="ej: 200,0" step="0.01" required><br><br>
                 </div>
 
                 <div class="form-group">
                     <label for="volatilidad">Volatilidad (σ) :    </label>
-                    <input type="number" name="volatilidad" placeholder="ej: 40,00" step="0.001" required> %<br><br>
+                    <input type="number" name="volatilidad" placeholder="ej: 32,00" step="0.001" required> %<br><br>
                 </div>
 
                 <div class="form-group">
@@ -46,7 +46,7 @@
                     <input type="number" name="tramos" placeholder="ej: 4" required><br><br>
                 </div>
 
-                 <div class="form-group border border-dark"><br>
+                 <div class="form-group "><br>
                     <label for="tipoInteres">Elige : </label>
                     <select name="tipoInteres" class="text-dark ">
                         <option  value="i">Tipo de interes anual (i)</option>
@@ -54,14 +54,17 @@
                     </select><br><br>
                      <label for="interesDef">Interés :   </label>
                      <input type="number" name="interesDef" placeholder="ej: 7,00" step="0.00000001" required>  %<br><br>
-                </div><br>
-
-                <div class="form-group col-12" >
-                    <button class="btn btn-info border-dark" type="submit"> Calcular Prima </button>
-                </div><br>
-                 <div class="list-group col-12 text-align-center">
-                  <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
                 </div>
+                <div class ="row">
+                    <div class="list-group col-2 text-align-start">
+                      <a href="http://127.0.0.1:5000/" class="list-group-item list-group-item-action list-group-item-primary text-center text-dark border-dark">Volver a inicio</a>
+                    </div>
+                    <div class="form-group col-8 align-self-center" >
+                    <button class="btn btn-info border-dark" type="submit"> Calcular Prima </button>
+                </div>
+
+                </div>
+            <br>
 
             </form>
 
