@@ -49,6 +49,16 @@ def tendencia():
     titulo = "ESTRATEGIAS DE TENDENCIA"
     return render_template("./Estrategias/tendencia/estrategiasTendencia.html", titulo = titulo)
 
+@aplicacion.route("/estrategiasVolatilidad")
+def volatilidad():
+    titulo = "ESTRATEGIAS DE VOLATILIDAD"
+    return render_template("./Estrategias/volatilidad/estrategiasVolatilidad.html", titulo = titulo)
+
+@aplicacion.route("/conoComprado")
+def conoComprado():
+    titulo = "CONO COMPRADO"
+    return render_template("./Estrategias/volatilidad/conoComprado.html", titulo=titulo)
+
 @aplicacion.route("/representacionTendencia", methods=['POST'])
 def representacionTendencia():
     if request.method == 'POST':

@@ -6,6 +6,13 @@ from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
 from python.estrategias.representacionEstrategias import Representacion
 from python.estrategias.tendencia.spreadBajista import SpreadBajista
 from python.estrategias.tendencia.tunel import Tunel
+from python.estrategias.volatilidad.conoComprado import ConoComprado
+from python.estrategias.volatilidad.conoVendido import ConoVendido
+from python.estrategias.volatilidad.cunaComprada import CunaComprada
+from python.estrategias.volatilidad.cunaVendida import CunaVendida
+from python.estrategias.volatilidad.mariposaComprada import MariposaComprada
+from python.estrategias.volatilidad.mariposaVendida import MariposaVendida
+
 """
 estrategia = EstrategiasBasicas(100, 5, 0, 0, 1)
 Representacion(estrategia.rutaImagen, estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
@@ -33,9 +40,8 @@ Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.
 
 
 """
-estrategia = EstrategiasBasicas(100, 5, 0, 0, 1)
+estrategia = MariposaVendida(90, 8, 100, 4, 100, 4, 110,2)
 print(estrategia.eje_x)
 print(estrategia.eje_y)
 print(estrategia.eje_0)
-
 Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
