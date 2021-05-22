@@ -3,6 +3,10 @@ import numpy as np
 from python.calculoPrimasMetodos.calculoPrimaMetodoBS import PrimaMetodoBS
 from python.calculoPrimasMetodos.calculoPrimaMetodoBinomial import PrimaMetodoBinomial
 from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
+from python.estrategias.mixtas.callRatioBackspread import CallRatioBackspread
+from python.estrategias.mixtas.putRatioBackspread import PutRatioBackspread
+from python.estrategias.mixtas.ratioCallSpread import RatioCallSpread
+from python.estrategias.mixtas.ratioPutSpread import RatioPutSpread
 from python.estrategias.representacionEstrategias import Representacion
 from python.estrategias.tendencia.spreadBajista import SpreadBajista
 from python.estrategias.tendencia.tunel import Tunel
@@ -40,7 +44,7 @@ Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.
 
 
 """
-estrategia = MariposaVendida(90, 8, 100, 4, 100, 4, 110,2)
+estrategia = PutRatioBackspread(100, 7, 90, 3, 90, 1)
 print(estrategia.eje_x)
 print(estrategia.eje_y)
 print(estrategia.eje_0)
