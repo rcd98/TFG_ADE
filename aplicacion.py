@@ -15,6 +15,8 @@ from python.estrategias.volatilidad.conoComprado import ConoComprado
 from python.estrategias.volatilidad.conoVendido import ConoVendido
 from python.estrategias.volatilidad.cunaComprada import CunaComprada
 from python.estrategias.volatilidad.cunaVendida import CunaVendida
+from python.estrategias.volatilidad.mariposaComprada import MariposaComprada
+from python.estrategias.volatilidad.mariposaVendida import MariposaVendida
 
 aplicacion = Flask(__name__)
 
@@ -306,6 +308,82 @@ def representacionPutRatioBackspread():
         estrategia = PutRatioBackspread(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2)
         r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
     return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="PUT", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
+
+@aplicacion.route("/mariposaComprada")
+def mariposaComprada():
+    titulo = "MARIPOSA COMPRADA"
+    return render_template("./Estrategias/volatilidad/mariposaComprada.html", titulo=titulo)
+
+@aplicacion.route("/representacionMariposaComprada", methods=['POST'])
+def representacionMariposaComprada():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        ejercicio3 = request.form['ejercicio3']
+        ejercicio3 = float(ejercicio3)
+        prima3 = request.form['prima3']
+        prima3 = float(prima3)
+
+        titulo = "MARIPOSA COMPRADA"
+        titulo1 = "COMPRA DE CALL"
+        titulo2 = "VENTA DE CALL"
+        titulo3 = "VENTA DE CALL"
+        titulo4 = "COMPRA DE CALL"
+
+        estrategia = MariposaComprada(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2, ejercicio3, prima3)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMariposas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, ejercicio3=ejercicio3, prima3 = prima3,  tipo="CALL", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3, titulo4=titulo4)
+
+@aplicacion.route("/mariposaVendida")
+def mariposaVendida():
+    titulo = "MARIPOSA VENDIDA"
+    return render_template("./Estrategias/volatilidad/mariposaVendida.html", titulo=titulo)
+
+@aplicacion.route("/representacionMariposaVendida", methods=['POST'])
+def representacionMariposaVendida():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        ejercicio3 = request.form['ejercicio3']
+        ejercicio3 = float(ejercicio3)
+        prima3 = request.form['prima3']
+        prima3 = float(prima3)
+
+        titulo = "MARIPOSA VENDIDA"
+        titulo1 = "VENTA DE CALL"
+        titulo2 = "COMPRA DE CALL"
+        titulo3 = "COMPRA DE CALL"
+        titulo4 = "VENTA DE CALL"
+
+        estrategia = MariposaVendida(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2, ejercicio3, prima3)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMariposas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, ejercicio3=ejercicio3, prima3 = prima3,  tipo="CALL", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3, titulo4=titulo4)
 
 @aplicacion.route("/representacionTendencia", methods=['POST'])
 def representacionTendencia():
