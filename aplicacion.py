@@ -3,6 +3,8 @@ from flask import Flask, render_template,request
 from python.calculoPrimasMetodos.calculoPrimaMetodoBS import PrimaMetodoBS
 from python.calculoPrimasMetodos.calculoPrimaMetodoBinomial import PrimaMetodoBinomial
 from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
+from python.estrategias.mixtas.callRatioBackspread import CallRatioBackspread
+from python.estrategias.mixtas.putRatioBackspread import PutRatioBackspread
 from python.estrategias.mixtas.ratioCallSpread import RatioCallSpread
 from python.estrategias.mixtas.ratioPutSpread import RatioPutSpread
 from python.estrategias.representacionEstrategias import Representacion
@@ -241,6 +243,69 @@ def representacionRatioPutSpread():
         r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
     return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="PUT", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
 
+@aplicacion.route("/callRatioBackspread")
+def callRatioBackspread():
+    titulo = "CALL RATIO BACKSPREAD"
+    return render_template("./Estrategias/mixtas/callRatioBackspread.html", titulo=titulo)
+
+@aplicacion.route("/representacionCallRatioBackspread", methods=['POST'])
+def representacionCallRatioBackspread():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        titulo = "CALL RATIO BACKSPREAD"
+        titulo1 = "VENTA DE CALL"
+        titulo2 = "COMPRA DE CALL"
+        titulo3 = "COMPRA DE CALL"
+
+        estrategia = CallRatioBackspread(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="CALL", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
+
+@aplicacion.route("/putRatioBackspread")
+def putRatioBackspread():
+    titulo = "PUT RATIO BACKSPREAD"
+    return render_template("./Estrategias/mixtas/putRatioBackspread.html", titulo=titulo)
+
+@aplicacion.route("/representacionPutRatioBackspread", methods=['POST'])
+def representacionPutRatioBackspread():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        titulo = "PUT RATIO BACKSPREAD"
+        titulo1 = "VENTA DE PUT"
+        titulo2 = "COMPRA DE PUT"
+        titulo3 = "COMPRA DE PUT"
+
+        estrategia = PutRatioBackspread(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="PUT", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
 
 @aplicacion.route("/representacionTendencia", methods=['POST'])
 def representacionTendencia():
