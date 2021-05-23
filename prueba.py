@@ -44,7 +44,7 @@ Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.
 
 
 """
-estrategia = PutRatioBackspread(100, 7, 90, 3, 90, 1)
+estrategia = ConoVendido(100, 5, 100, 5,1,1)
 print(estrategia.eje_x)
 print(estrategia.eje_y)
 print(estrategia.eje_0)

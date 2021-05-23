@@ -40,9 +40,9 @@ def conoVendido(precioEjercicio, precioEjercicio2, prima, prima2, numContratos, 
         eje_x.append(i)
         eje_0.append(0)
         if i <= precioEjercicio:
-            eje_y.append(-prima * numContratos)
+            eje_y.append(prima * numContratos)
         else:
-            eje_y.append((i - precioEjercicio - prima) * numContratos)
+            eje_y.append((i - precioEjercicio - prima) * -1 * numContratos)
 
         if precioEjercicio2 - i + precioEjercicio2 <= precioEjercicio2:
             eje_y1.append(prima2 * numContratos2)
