@@ -3,6 +3,8 @@ from flask import Flask, render_template,request
 from python.calculoPrimasMetodos.calculoPrimaMetodoBS import PrimaMetodoBS
 from python.calculoPrimasMetodos.calculoPrimaMetodoBinomial import PrimaMetodoBinomial
 from python.estrategias.basicas.estrategiasBasicas import EstrategiasBasicas
+from python.estrategias.mixtas.ratioCallSpread import RatioCallSpread
+from python.estrategias.mixtas.ratioPutSpread import RatioPutSpread
 from python.estrategias.representacionEstrategias import Representacion
 from python.estrategias.tendencia.spreadAlcista import SpreadAlcista
 from python.estrategias.tendencia.spreadBajista import SpreadBajista
@@ -57,6 +59,11 @@ def tendencia():
 def volatilidad():
     titulo = "ESTRATEGIAS DE VOLATILIDAD"
     return render_template("./Estrategias/volatilidad/estrategiasVolatilidad.html", titulo = titulo)
+
+@aplicacion.route("/estrategiasMixtas")
+def mixtas():
+    titulo = "ESTRATEGIAS MIXTAS"
+    return render_template("./Estrategias/mixtas/estrategiasMixtas.html", titulo = titulo)
 
 @aplicacion.route("/conoComprado")
 def conoComprado():
@@ -169,6 +176,70 @@ def representacionCunaVendida():
         estrategia = CunaVendida(ejercicio0, prima0, ejercicio1, prima1, contratos0, contratos1)
         r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
     return render_template("./Estrategias/representacion.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo="CALL y PUT", contratos0=contratos0, contratos1=contratos1, titulo=titulo, titulo1=titulo1, titulo2=titulo2)
+
+@aplicacion.route("/ratioCallSpread")
+def ratioCallSpread():
+    titulo = "RATIO CALL SPREAD"
+    return render_template("./Estrategias/mixtas/ratioCallSpread.html", titulo=titulo)
+
+@aplicacion.route("/representacionRatioCallSpread", methods=['POST'])
+def representacionRatioCallSpread():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        titulo = "RATIO CALL SPREAD"
+        titulo1 = "COMPRA DE CALL"
+        titulo2 = "VENTA DE CALL"
+        titulo3 = "VENTA DE CALL"
+
+        estrategia = RatioCallSpread(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="CALL", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
+
+@aplicacion.route("/ratioPutSpread")
+def ratioPutSpread():
+    titulo = "RATIO PUT SPREAD"
+    return render_template("./Estrategias/mixtas/ratioPutSpread.html", titulo=titulo)
+
+@aplicacion.route("/representacionRatioPutSpread", methods=['POST'])
+def representacionRatioPutSpread():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+
+        ejercicio2 = request.form['ejercicio2']
+        ejercicio2 = float(ejercicio2)
+        prima2 = request.form['prima2']
+        prima2 = float(prima2)
+
+        titulo = "RATIO PUT SPREAD"
+        titulo1 = "COMPRA DE PUT"
+        titulo2 = "VENTA DE PUT"
+        titulo3 = "VENTA DE PUT"
+
+        estrategia = RatioPutSpread(ejercicio0, prima0, ejercicio1, prima1, ejercicio2, prima2)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacionMixtas.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, ejercicio2= ejercicio2, prima2=prima2, tipo="PUT", titulo=titulo, titulo1=titulo1, titulo2=titulo2, titulo3=titulo3)
 
 
 @aplicacion.route("/representacionTendencia", methods=['POST'])
