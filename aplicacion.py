@@ -9,6 +9,8 @@ from python.estrategias.tendencia.spreadBajista import SpreadBajista
 from python.estrategias.tendencia.tunel import Tunel
 from python.estrategias.volatilidad.conoComprado import ConoComprado
 from python.estrategias.volatilidad.conoVendido import ConoVendido
+from python.estrategias.volatilidad.cunaComprada import CunaComprada
+from python.estrategias.volatilidad.cunaVendida import CunaVendida
 
 aplicacion = Flask(__name__)
 
@@ -111,6 +113,63 @@ def representacionConoVendido():
         estrategia = ConoVendido(ejercicio0, prima0, ejercicio1, prima1, contratos0, contratos1)
         r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
     return render_template("./Estrategias/representacion.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo="CALL y PUT", contratos0=contratos0, contratos1=contratos1, titulo=titulo, titulo1=titulo1, titulo2=titulo2)
+
+@aplicacion.route("/cunaComprada")
+def cunaComprada():
+    titulo = "CUNA COMPRADA"
+    return render_template("./Estrategias/volatilidad/cunaComprada.html", titulo=titulo)
+
+@aplicacion.route("/representacionCunaComprada", methods=['POST'])
+def representacionCunaComprada():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+        contratos0 = request.form['contratos0']
+        contratos0 = float(contratos0)
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+        contratos1 = request.form['contratos1']
+        contratos1 = float(contratos1)
+        titulo = "CUNA COMPRADA"
+        titulo1 = "COMPRA DE CALL"
+        titulo2 = "COMPRA PUT"
+
+        estrategia = CunaComprada(ejercicio0, prima0, ejercicio1, prima1, contratos0, contratos1)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacion.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo="CALL y PUT", contratos0=contratos0, contratos1=contratos1, titulo=titulo, titulo1=titulo1, titulo2=titulo2)
+
+@aplicacion.route("/cunaVendida")
+def cunaVendida():
+    titulo = "CUNA VENDIDA"
+    return render_template("./Estrategias/volatilidad/cunaVendida.html", titulo=titulo)
+
+@aplicacion.route("/representacionCunaVendida", methods=['POST'])
+def representacionCunaVendida():
+    if request.method == 'POST':
+        ejercicio0 = request.form['ejercicio0']
+        ejercicio0 = float(ejercicio0)
+        prima0 = request.form['prima0']
+        prima0 = float(prima0)
+        contratos0 = request.form['contratos0']
+        contratos0 = float(contratos0)
+        ejercicio1 = request.form['ejercicio1']
+        ejercicio1 = float(ejercicio1)
+        prima1 = request.form['prima1']
+        prima1 = float(prima1)
+        contratos1 = request.form['contratos1']
+        contratos1 = float(contratos1)
+        titulo = "CUNA VENDIDA"
+        titulo1 = "VENTA DE CALL"
+        titulo2 = "VENTA PUT"
+
+        estrategia = CunaVendida(ejercicio0, prima0, ejercicio1, prima1, contratos0, contratos1)
+        r = Representacion(estrategia.eje_x, estrategia.eje_y, estrategia.eje_0, estrategia.nombre)
+    return render_template("./Estrategias/representacion.html", ruta=r.rutaImagen, ejercicio0=ejercicio0, prima0=prima0, ejercicio1= ejercicio1, prima1=prima1, tipo="CALL y PUT", contratos0=contratos0, contratos1=contratos1, titulo=titulo, titulo1=titulo1, titulo2=titulo2)
+
 
 @aplicacion.route("/representacionTendencia", methods=['POST'])
 def representacionTendencia():
