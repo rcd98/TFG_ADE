@@ -9,8 +9,8 @@ class CunaComprada(object):
             self.precioEjercicio2 = pe2
             self.prima = p1
             self.prima2 = p2
-            self.numContratos = numContratos
-            self.numContratos2 = numContratos2
+            self.numContratos = 1
+            self.numContratos2 = 1
             self.rutaImagen = ""
             self.eje_x = []
             self.eje_y = []

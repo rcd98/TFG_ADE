@@ -4,7 +4,7 @@ from datetime import datetime
 class MariposaComprada(object):
 
     def __init__(self, pe1, p1, pe2, p2, pe3, p3, pe4, p4):
-        if (pe1 < pe2 and pe1 < pe3 and pe1 < pe4 and pe2 == pe3 and pe3 < pe4):
+        if (pe1 < pe2 and pe1 < pe3 and pe1 < pe4 and pe2 == pe3 and pe3 < pe4 and p2 == p3):
             self.precioEjercicio = pe1
             self.precioEjercicio2 = pe2
             self.precioEjercicio3 = pe3

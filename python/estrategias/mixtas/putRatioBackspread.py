@@ -4,7 +4,7 @@ from datetime import datetime
 class PutRatioBackspread(object):
 
     def __init__(self, pe1, p1, pe2, p2, pe3, p3):
-        if (pe1 > pe2  and pe2 == pe3):
+        if (pe1 > pe2  and pe2 == pe3 and p2==p3):
             self.precioEjercicio = pe1
             self.precioEjercicio2 = pe2
             self.precioEjercicio3 = pe3

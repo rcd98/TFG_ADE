@@ -8,6 +8,7 @@ class EstrategiasBasicas(object):
         self.operacion = operacion
         self.tipo = tipo
         self.numContratos = numContratos
+        self.numContratos = 1
         self.eje_x = []
         self.eje_y = []
         self.eje_0 = []
