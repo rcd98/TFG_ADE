@@ -539,4 +539,4 @@ def calculateBS():
 
 
 if __name__ == "__main__":
-    aplicacion.run(debug=True)
+    aplicacion.run()
